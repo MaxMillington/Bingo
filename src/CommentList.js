@@ -5,7 +5,13 @@ class CommentList extends Component {
   render() {
     const commentNodes = this.props.data.map(comment => {
       return (
-        <Comment author={ comment.author } key={ comment['text'] }>
+        <Comment
+          author={ comment.author }
+          key={ comment['text'] }
+          uniqueID={ comment['_id'] }
+          onCommentDelete={ this.props.onCommentDelete }
+          onCommentUpdate={ this.props.onCommentUpdate }
+        >
           { comment.text}
         </Comment>
       )

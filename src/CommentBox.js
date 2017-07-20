@@ -22,6 +22,7 @@ class CommentBox extends Component {
       })
   }
   handleCommentSubmit = (comment) => {
+    console.log(this.props)
     let comments = this.state.data;
     comment.id = Date.now();
     let newComments = comments.concat([comment]);
@@ -33,11 +34,34 @@ class CommentBox extends Component {
       });
   }
 
+  handleCommentDelete = (id) => {
+    axios.delete(`${this.props.url}/${id}`)
+      .then(res => {
+        console.log('Comment deleted');
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+  handleCommentUpdate = (id, comment) => {
+    console.log(this.props)
+    //sends the comment id and new author/text to our api
+    axios.put(`${this.props.url}/${id}`, comment)
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
   render() {
     return (
       <div style={ style.commentBox }>
         <h2>Comments:</h2>
-        <CommentList data={ this.state.data }/>
+        <CommentList
+          data={ this.state.data }
+          onCommentDelete={ this.handleCommentDelete }
+          onCommentUpdate={ this.handleCommentUpdate }
+        />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     )
