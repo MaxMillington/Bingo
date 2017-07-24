@@ -3,8 +3,19 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var firebase = require("firebase");
 var Comment = require('./model/comments');
 require('dotenv').load()
+
+var config = {
+  apiKey: `${process.env.FIREBASE_API_KEY}`,
+  authDomain: "my-test-project-a79c1.firebaseapp.com",
+  databaseURL: "https://my-test-project-a79c1.firebaseio.com",
+  projectId: "my-test-project-a79c1",
+  storageBucket: "my-test-project-a79c1.appspot.com",
+  messagingSenderId: "289131490895"
+};
+firebase.initializeApp(config);
 //and create our instances
 var app = express();
 var router = express.Router();
