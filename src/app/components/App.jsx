@@ -1,10 +1,12 @@
-import React, { PropTypes } from 'react'
-import Header from './common/Header'
+import React from 'react'
+import PropTypes from 'react-proptypes'
+// import Header from './common/Header'
+import ConnectedHeader from './common/ConnectedHeader'
 
-function App({ children }) {
+const App = ({ children }) => {
   return (
     <div className="outer-container">
-      <Header />
+      <ConnectedHeader />
       {children}
     </div>
   )

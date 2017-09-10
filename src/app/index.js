@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import React from 'react' //eslint-disable-line
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import ConnectedBingo from './components/home/ConnectedBingo'
-import App from './components/App';
+import App from './components/App'
 
-import reducers from './reducers';
+import reducers from './reducers'
 
-import './components/bundle.scss';
+import './components/bundle.scss'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(reducers);

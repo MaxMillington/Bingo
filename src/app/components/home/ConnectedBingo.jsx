@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {

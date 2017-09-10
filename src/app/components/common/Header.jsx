@@ -1,16 +1,19 @@
 import React from 'react'
+import PropTypes from 'react-proptypes'
 
-const Header = () => {
-  const tiles = ['4', '78', '92', '23', '44']
+const Header = (props) => {
+  const numbers = props.numbersCalled.slice(Math.max(props.numbersCalled.length - 5, 0))
 
   const renderTiles = (numbers) => {
-    return numbers.map((number) => {
-      return (
-        <div className="number-tile--small" key={number}>
-          {number}
-        </div>
-      )
-    })
+    if (numbers) {
+      return numbers.map((number) => {
+        return (
+          <div className="number-tile--small" key={number}>
+            {number}
+          </div>
+        )
+      })
+    }
   }
   return (
     <header>
@@ -21,7 +24,7 @@ const Header = () => {
               Last Ball
             </div>
             <div className="number-tile">
-              77
+              {props.nextNumber}
             </div>
           </div>
           <div className="right-column">
@@ -29,13 +32,18 @@ const Header = () => {
               Previous Balls
             </div>
             <div className="tile-container">
-              {renderTiles(tiles)}
+              {renderTiles(numbers.reverse())}
             </div>
           </div>
         </div>
       </nav>
     </header>
   )
+}
+
+Header.propTypes = {
+  nextNumber: PropTypes.number,
+  numbersCalled: PropTypes.array
 }
 
 export default Header

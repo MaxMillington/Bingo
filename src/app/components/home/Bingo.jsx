@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'react-proptypes'
 import BingoBoard from './BingoBoard'
 import Button from './Button'
 
 const Bingo = (props) => {
-
   const callBingo = () => {
     const boardNumbers = [
       props.board1Numbers,

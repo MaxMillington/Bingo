@@ -49,18 +49,22 @@ export default (state = initialState, action) => {
       }
 
     case NEXT_BALL:
-      console.log('next ball')
+      console.log('next ball', action.data)
       return {
         ...state,
         loading: true
       }
 
     case NEXT_BALL_SUCCESS:
-      console.log('next success')
-      return {
-        ...state,
-        loading: false
-      }
+      console.log('next success', action.data)
+      return Object.assign({}, state, {
+        loading: false,
+        nextBall: action.data.nextBall,
+        numbersCalled: action.data.numbersCalled
+      });
+    // ...state,
+    // loading: false
+
 
     case NEXT_BALL_ERROR:
       console.log('next error')
