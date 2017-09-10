@@ -18,13 +18,13 @@ const Bingo = (props) => {
     props.getNextBall(props.numbersCalled)
   }
 
-  const isBingo = () => {
-    if (props.bingo === true) {
-      return 'WOOOOOOO BINGO!'
+  const bingoMessage = () => {
+    if (props.error) {
+      return 'Oops, there is an error :('
     } else if (props.bingo === false) {
       return 'That is not actually bingo but you can keep playing'
-    } else if (props.error) {
-      return 'Oops, there is an error :('
+    } else if (props.bingo === true) {
+      return 'WOOOOOOO BINGO!'
     } else if (props.loading) {
       return 'Loading ... '
     }
@@ -33,7 +33,7 @@ const Bingo = (props) => {
   return (
     <div className="container home">
       <div className="bingo-message">
-        {isBingo()}
+        {bingoMessage()}
       </div>
       <div className="boards-container">
         <BingoBoard numbers={props.board1Numbers} numbersCalled={props.numbersCalled} />

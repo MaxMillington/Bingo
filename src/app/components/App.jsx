@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'react-proptypes'
-// import Header from './common/Header'
 import ConnectedHeader from './common/ConnectedHeader'
 
 const App = ({ children }) => {
