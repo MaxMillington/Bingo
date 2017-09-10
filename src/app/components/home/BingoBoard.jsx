@@ -6,7 +6,11 @@ const BingoBoard = (props) => {
 
   const renderTiles = (numbers) => {
     return numbers.map((number) => {
-      return <BingoTile number={number} key={number + Math.random()} />
+      return <BingoTile
+        number={number}
+        key={number + Math.random()}
+        numbersCalled={props.numbersCalled}
+      />
     })
   }
 
@@ -18,7 +22,8 @@ const BingoBoard = (props) => {
 }
 
 BingoBoard.propTypes = {
-  numbers: PropTypes.array
+  numbers: PropTypes.array,
+  numbersCalled: PropTypes.array
 }
 
 

@@ -9,12 +9,16 @@ const Header = (props) => {
       return numbers.map((number) => {
         return (
           <div className="number-tile--small" key={number}>
-            {number}
+            {('0' + number).slice(-2)}
           </div>
         )
       })
     }
   }
+
+  let formattedNumber = props.nextNumber ? ('0' + props.nextNumber).slice(-2) : null
+
+
   return (
     <header>
       <nav>
@@ -24,7 +28,7 @@ const Header = (props) => {
               Last Ball
             </div>
             <div className="number-tile">
-              {props.nextNumber}
+              {formattedNumber}
             </div>
           </div>
           <div className="right-column">

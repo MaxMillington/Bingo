@@ -7,14 +7,15 @@ import {
 } from '../../actions/index'
 import Bingo from './Bingo'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   board1Numbers: state.bingo.board1,
   board2Numbers: state.bingo.board2,
   board3Numbers: state.bingo.board3,
   board4Numbers: state.bingo.board4,
   numbersCalled: state.bingo.numbersCalled,
   loading: state.bingo.loading,
-  error: state.bingo.error
+  error: state.bingo.error,
+  bingo: state.bingo.bingo
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

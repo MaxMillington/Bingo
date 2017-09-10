@@ -22,3 +22,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.bingo-tile--blue {
+  @extend .bingo-tile;
+  background-color: #0070BA;
+  color: white;
+}

@@ -11,6 +11,7 @@
 
 # misc
 .idea/
+/public/favicon.ico
 .DS_Store
 .env
 .env.local

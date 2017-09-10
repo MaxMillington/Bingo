@@ -1,6 +1,6 @@
 'use strict'
-const express = require('express');
-const bodyParser = require('body-parser');
+var express = require('express');
+var bodyParser = require('body-parser');
 require('dotenv').load()
 
 const app = express();
@@ -40,12 +40,12 @@ router.route('/bingo')
 router.route('/balls')
   .post(function(req, res) {
     const numbersCalled = req.body.numbers;
-    const getRandomIndex = (usedIndexs, maxIndex) => {
+    const getRandomIndex = (usedIndices, maxIndex) => {
       let min = 0;
       let max = maxIndex - 1;
       let index = Math.floor(Math.random()*(max-min+1)+min);
 
-      while(usedIndexs.indexOf(index) > -1) {
+      while(usedIndices.indexOf(index) > -1) {
         if (index < max) {
           index++;
         } else {
@@ -55,7 +55,7 @@ router.route('/balls')
 
       return index;
     }
-    const nextNumber = getRandomIndex(numbersCalled, 99)
+    const nextNumber = getRandomIndex(numbersCalled, 100)
     numbersCalled.push(nextNumber)
     res.json({ nextBall: nextNumber, numbersCalled: numbersCalled })
   });

@@ -27,52 +27,41 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case BINGO:
-      console.log('bingo')
-      return {
-        ...state,
-        loading: true
-      }
+      return Object.assign({}, state, {
+        loading: true,
+        bingo: null
+      });
 
     case BINGO_SUCCESS:
-      console.log('bingo success')
-      return {
-        ...state,
-        loading: false
-      }
+      return Object.assign({}, state, {
+        loading: true,
+        bingo: action.data.bingo
+      });
 
     case BINGO_ERROR:
-      console.log('bingo error')
-      return {
-        ...state,
+      return Object.assign({}, state, {
         loading: false,
         error: true
-      }
+      })
 
     case NEXT_BALL:
-      console.log('next ball', action.data)
-      return {
-        ...state,
-        loading: true
-      }
+      return Object.assign({}, state, {
+        loading: true,
+        bingo: null
+      });
 
     case NEXT_BALL_SUCCESS:
-      console.log('next success', action.data)
       return Object.assign({}, state, {
         loading: false,
         nextBall: action.data.nextBall,
         numbersCalled: action.data.numbersCalled
       });
-    // ...state,
-    // loading: false
-
 
     case NEXT_BALL_ERROR:
-      console.log('next error')
-      return {
-        ...state,
+      return Object.assign({}, state, {
         loading: false,
         error: true
-      }
+      })
 
     default:
       return state

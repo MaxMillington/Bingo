@@ -18,13 +18,28 @@ const Bingo = (props) => {
     props.getNextBall(props.numbersCalled)
   }
 
+  const isBingo = () => {
+    if (props.bingo === true) {
+      return 'WOOOOOOO BINGO!'
+    } else if (props.bingo === false) {
+      return 'That is not actually bingo but you can keep playing'
+    } else if (props.error) {
+      return 'Oops, there is an error :('
+    } else if (props.loading) {
+      return 'Loading ... '
+    }
+  }
+
   return (
     <div className="container home">
+      <div className="bingo-message">
+        {isBingo()}
+      </div>
       <div className="boards-container">
-        <BingoBoard numbers={props.board1Numbers} />
-        <BingoBoard numbers={props.board2Numbers} />
-        <BingoBoard numbers={props.board3Numbers} />
-        <BingoBoard numbers={props.board4Numbers} />
+        <BingoBoard numbers={props.board1Numbers} numbersCalled={props.numbersCalled} />
+        <BingoBoard numbers={props.board2Numbers} numbersCalled={props.numbersCalled} />
+        <BingoBoard numbers={props.board3Numbers} numbersCalled={props.numbersCalled} />
+        <BingoBoard numbers={props.board4Numbers} numbersCalled={props.numbersCalled} />
       </div>
       <div className="buttons-container">
         <Button text="Call Bingo!" click={callBingo}/>
@@ -43,7 +58,8 @@ Bingo.propTypes = {
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
   callBingo: PropTypes.func.isRequired,
-  getNextBall: PropTypes.func.isRequired
+  getNextBall: PropTypes.func.isRequired,
+  bingo: PropTypes.bool
 }
 
 
