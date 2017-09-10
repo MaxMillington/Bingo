@@ -1,0 +1,17 @@
+.home {
+  background-color: #EEF2F5;
+  max-width: 700px;
+}
+
+.boards-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 10px 0 10px;
+}
+
+.buttons-container {
+  display: flex;
+  max-width: 700px;
+  padding: 0 40px 40px 40px;
+  justify-content: space-around;
+}

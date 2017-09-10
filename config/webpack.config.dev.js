@@ -139,6 +139,8 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.scss$/,
+          /\.sass$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -149,6 +151,16 @@ module.exports = {
         options: {
           name: 'static/media/[name].[hash:8].[ext]',
         },
+      },
+      {
+        test: /\.scss$/,
+        include: paths.appSrc,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.sass$/,
+        include: paths.appSrc,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       // "url" loader works like "file" loader except that it embeds assets
       // smaller than specified limit in bytes as data URLs to avoid requests.

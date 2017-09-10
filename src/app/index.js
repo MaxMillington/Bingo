@@ -5,12 +5,12 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import ConnectedBingo from './app/components/home/ConnectedBingo'
-import App from './app/components/App';
+import ConnectedBingo from './components/home/ConnectedBingo'
+import App from './components/App';
 
-import reducers from './app/reducers';
+import reducers from './reducers';
 
-import './app/components/bundle.scss';
+import './components/bundle.scss';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const store = createStoreWithMiddleware(reducers);

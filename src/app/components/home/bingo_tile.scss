@@ -1,0 +1,24 @@
+.bingo-cell {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.bingo-cell:before {
+  content: '';
+  display: table;
+  padding-top: 100%;
+}
+
+.bingo-tile {
+  flex-grow: 1;
+  border: 0.2px solid #798B90;
+  background: white;
+  color: #798B90;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
