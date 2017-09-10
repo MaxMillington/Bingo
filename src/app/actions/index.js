@@ -15,14 +15,14 @@ export const bingo = (bool) => {
   }
 }
 
-export function bingoSuccess(data) {
+export const bingoSuccess = (data) => {
   return {
     type: BINGO_SUCCESS,
     data
   };
 }
 
-export function bingoError(bool) {
+export const bingoError = (bool) => {
   return {
     type: BINGO_ERROR,
     error: bool
@@ -36,14 +36,14 @@ export const nextBall = (bool) => {
   }
 }
 
-export function nextBallSuccess(data) {
+export const nextBallSuccess = (data) => {
   return {
     type: NEXT_BALL_SUCCESS,
     data
   };
 }
 
-export function nextBallError(bool) {
+export const nextBallError = (bool) => {
   return {
     type: NEXT_BALL_ERROR,
     error: bool
