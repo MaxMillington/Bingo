@@ -20,7 +20,7 @@ const Bingo = (props) => {
 
   const bingoMessage = () => {
     if (props.error) {
-      return 'Oops, there is an error :('
+      return 'Oops, there is an error'
     } else if (props.bingo === false) {
       return 'That is not actually bingo but you can keep playing'
     } else if (props.bingo === true) {

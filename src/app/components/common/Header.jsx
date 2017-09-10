@@ -18,7 +18,6 @@ const Header = (props) => {
 
   let formattedNumber = props.nextNumber ? ('0' + props.nextNumber).slice(-2) : null
 
-
   return (
     <header>
       <nav>
